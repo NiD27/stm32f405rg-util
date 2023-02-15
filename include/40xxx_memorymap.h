@@ -11,7 +11,7 @@
 #define AHB3_ADDRESS 0x60000000
 /*END OF BUSS ADDRESS*/
 
-/*AHB1 MAP*/
+
 
 /*RCC*/
 #define RCC_SIZE    0x3FF
@@ -22,12 +22,16 @@
 #define RCC_AHB1RSTR    (RCC_ADDRESS+0x10)
 
 #define RCC_AHB1ENR     (RCC_ADDRESS+0x30)
+#define RCC_APB1ENR     (RCC_ADDRESS+0x40)
+#define RCC_APB2ENR     (RCC_ADRESS+0x44)
 
 #define RCC_AHB1ENR_RESET 0x00100000
+#define RCC_APB1ENR_RESET 0x00000000
+#define RCC_APB2ENR_RESET 0x00000000
 
 #define RCC_CR_RESET_VALUE  0x00000083 /*0x0000 XX83*/
 /*END OF RCC*/
-
+/*AHB1 MAP*/
 /*
 GPIO
 AHB1->GPIOx
@@ -87,5 +91,73 @@ GPIO offset 3FF ie 1024 bytes
 /*END OF GPIO*/
 
 /*END OF AHB1 MAP*/
+/*APB1 MAP*/
 
+typedef struct{
+    uint32_t TIM0EN :1;
+    uint32_t TIM1EN :1;
+    uint32_t TIM2EN :1;
+    uint32_t TIM3EN :1;
+    uint32_t TIM4EN :1;
+    uint32_t TIM5EN :1;
+    uint32_t TIM6EN :1;
+    uint32_t TIM7EN :1;
+    uint32_t TIM8EN :1;
+    uint32_t RESERVED_1 :2;
+    uint32_t WWDGEN : 1;
+    uint32_t RESERVED_2 :2;
+    uint32_t SPI2EN :1;
+    uint32_t SPI3EN :1;
+    uint32_t RESERVED_3 :1;
+    uint32_t USART2EN :1;
+    uint32_t USART3EN :1;
+    uint32_t USART4EN :1;
+    uint32_t USART5EN :1;
+    uint32_t I2C1EN :1;
+    uint32_t I2C2EN :1;
+    uint32_t I2C3EN :1;
+    uint32_t RESERVED_4 :1;
+    uint32_t CAN1EN :1;
+    uint32_t CAN2EN :1;
+    uint32_t RESERVED_5 :1;
+    uint32_t PWREN :1;
+    uint32_t DACEN :1;
+    uint32_t RESERVED_6 :2;
+}APB1ENR_ST;
+
+/*END OF APB1 MAP*/
+
+/*APB2 MAP*/
+
+#define TIM1_ADDRESS 0x40010000
+#define TIM2_ADDRESS 0x40010400
+
+typedef struct{
+    uint32_t TIM1EN :1;
+    uint32_t TIM8EN :1;
+    uint32_t RESERVED_1 :2;
+    uint32_t USART1EN :1;
+    uint32_t USART6EN :1;
+    uint32_t RESERVED_2 :2;
+    uint32_t ADC1EN :1;
+    uint32_t ADC2EN :1;
+    uint32_t ADC3EN :1;
+    uint32_t SDIOEN :1;
+    uint32_t SPI1EN :1;
+    uint32_t SPI4EN :1;
+    uint32_t SYSCFGEN :1;
+    uint32_t RESERVED_3 :1;
+    uint32_t TIM9EN :1;
+    uint32_t TIM10EN :1;
+    uint32_t TIM11EN :1;
+    uint32_t RESERVED_4 :1;
+    uint32_t SPI5EN :1;
+    uint32_t SPI6EN :1;
+    uint32_t SAI1EN :1;
+    uint32_t RESERVED_5 :3;
+    uint32_t LTDCEN :1;
+    uint32_t RESERVED_6 :5;
+}RCC_APB2ENR_ST;
+
+/*END OF APB2 MAP*/
 #endif
