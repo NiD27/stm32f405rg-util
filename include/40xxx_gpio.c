@@ -1,4 +1,4 @@
-#include "40xxx_gpio.c"
+#include "40xxx_gpio.h"
 
 // void gpio_moder_set(uint16_t pin_number, MODER_SETTINGS moder_setting){
 
