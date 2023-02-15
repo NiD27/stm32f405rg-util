@@ -1,5 +1,5 @@
-#ifndef _NID_CUSTOMINT_H
-#define _NID_CUSTOMINT_H
+#ifndef _NID_customint_
+#define _NID_customint_
 
 #ifdef __INT8_TYPE__
 typedef __INT8_TYPE__ int8_t;
@@ -26,4 +26,4 @@ typedef __UINT32_TYPE__ uint32_t;
 typedef __UINT64_TYPE__ uint64_t;
 #endif
 
-#endif /* _NID_CUSTOMINT_H */
+#endif /* _NID_customint_ */

@@ -1,5 +1,5 @@
-#ifndef _nid_bitwise_
-#define _nid_bitwise_
+#ifndef _NID_bitwise_
+#define _NID_bitwise_
 
 #include <stdint.h>
 
@@ -26,4 +26,4 @@ B : 8bits
 
 
 
-#endif /*_nid_bitwise_*/
+#endif /*_NID_bitwise_*/

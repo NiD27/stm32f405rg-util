@@ -20,7 +20,7 @@ typedef struct{
     uint32_t MODER13 :2;
     uint32_t MODER14 :2;
     uint32_t MODER15 :2;
-}GPIO_MODER;
+}GPIO_MODER_ST;
 
 typedef struct{
     uint32_t OTYPER0 :1;
@@ -40,7 +40,7 @@ typedef struct{
     uint32_t OTYPER14 :1;
     uint32_t OTYPER15 :1;
     uint32_t RESERVED :16;
-}GPIO_OTYPER;
+}GPIO_OTYPER_ST;
 
 typedef struct{
     uint32_t OSPEEDR0 :2;
@@ -59,7 +59,7 @@ typedef struct{
     uint32_t OSPEEDR13 :2;
     uint32_t OSPEEDR14 :2;
     uint32_t OSPEEDR15 :2;
-}GPIO_OSPEEDR;
+}GPIO_OSPEEDR_ST;
 
 typedef struct{
     uint32_t PUPDR0 :2;
@@ -78,7 +78,7 @@ typedef struct{
     uint32_t PUPDR13 :2;
     uint32_t PUPDR14 :2;
     uint32_t PUPDR15 :2;
-}GPIO_PUPDR;
+}GPIO_PUPDR_ST;
 
 typedef struct{
     uint32_t IDR0 :1;
@@ -98,7 +98,7 @@ typedef struct{
     uint32_t IDR14 :1;
     uint32_t IDR15 :1;
     uint32_t RESERVED :16;
-}GPIO_IDR;
+}GPIO_IDR_ST;
 
 typedef struct{
     uint32_t ODR0 :1;
@@ -118,7 +118,7 @@ typedef struct{
     uint32_t ODR14 :1;
     uint32_t ODR15 :1;
     uint32_t RESERVED :16;
-}GPIO_ODR;
+}GPIO_ODR_ST;
 
 typedef struct{
     uint32_t BS0 :1;
@@ -153,7 +153,7 @@ typedef struct{
     uint32_t BR13 :1;
     uint32_t BR14 :1;
     uint32_t BR15 :1;
-}GPIO_BSRR;
+}GPIO_BSRR_ST;
 
 typedef struct{
     uint32_t ODR0 :1;
@@ -173,7 +173,55 @@ typedef struct{
     uint32_t ODR14 :1;
     uint32_t ODR15 :1;
     uint32_t RESERVED :16;
-}GPIO_LCKR;
+}GPIO_LCKR_ST;
+
+typedef struct{
+    uint32_t AFRL0 :4;
+    uint32_t AFRL1 :4;
+    uint32_t AFRL2 :4;
+    uint32_t AFRL3 :4;
+    uint32_t AFRL4 :4;
+    uint32_t AFRL5 :4;
+    uint32_t AFRL6 :4;
+    uint32_t AFRL7 :4;
+}GPIO_AFRL_ST;
+
+typedef struct{
+    uint32_t AFRH8 :4;
+    uint32_t AFRH9 :4;
+    uint32_t AFRH10 :4;
+    uint32_t AFRH11 :4;
+    uint32_t AFRH12 :4;
+    uint32_t AFRH13 :4;
+    uint32_t AFRH14 :4;
+    uint32_t AFRH15 :4;
+}GPIO_AFRH_ST;
+
+typedef struct{
+    GPIO_MODER moder;
+    GPIO_OTYPER otyper;
+    GPIO_OSPEEDR ospeedr;
+    GPIO_PUPDR pupdr,
+    GPIO_IDR idr,
+    GPIO_ODR odr,
+    GPIO_BSRR bsrr,
+    GPIO_LCKR lckr,
+    GPIO_AFRL afrl,
+    GPIO_AFRH afrh
+}GPIO_REGISTERS_ST;
+
+typedef union{
+    GPIO_MODER moder;
+    GPIO_OTYPER otyper;
+    GPIO_OSPEEDR ospeedr;
+    GPIO_PUPDR pupdr,
+    GPIO_IDR idr,
+    GPIO_ODR odr,
+    GPIO_BSRR bsrr,
+    GPIO_LCKR lckr,
+    GPIO_AFRL afrl,
+    GPIO_AFRH afrh
+}GPIO_REGISTERS_UT;
 
 typedef enum{GPIOA = 0, GPIOB = 1, GPIOC = 2, GPIOD = 3, GPIOE = 4, GPIOF = 5, GPIOG = 6,\
             GPIOH = 7, GPIOI = 8}GPIOX;
