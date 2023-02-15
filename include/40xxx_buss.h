@@ -9,10 +9,10 @@ typedef enum {
     DMA1EN = 21, DMA2EN = 22, DMA2DEN = 23, ETHMACEN = 25, ETHMACTXEN = 26, ETMMACRXEN = 27,\
     ETHMACPTPEN = 28, OTGHSEN = 29, OTGHSULPIEN = 30
 
-}ahb1_peripheral_t;
+}AHB1_PERIPHERALS_T;
 
-void buss_ahb1_enable_peripheral(ahb1_peripheral_t ahb1_peripheral);
-void buss_ahb1_disable_peripheral(ahb1_peripheral_t ahb1_peripheral);
+void buss_ahb1_enable_peripheral(AHB1_PERIPHERALS_T ahb1_peripheral);
+void buss_ahb1_disable_peripheral(AHB1_PERIPHERALS_T ahb1_peripheral);
 
 
 #endif
