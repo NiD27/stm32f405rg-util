@@ -198,29 +198,29 @@ typedef struct{
 }GPIO_AFRH_ST;
 
 typedef struct{
-    GPIO_MODER moder;
-    GPIO_OTYPER otyper;
-    GPIO_OSPEEDR ospeedr;
-    GPIO_PUPDR pupdr,
-    GPIO_IDR idr,
-    GPIO_ODR odr,
-    GPIO_BSRR bsrr,
-    GPIO_LCKR lckr,
-    GPIO_AFRL afrl,
-    GPIO_AFRH afrh
+    GPIO_MODER_ST moder;
+    GPIO_OTYPER_ST otyper;
+    GPIO_OSPEEDR_ST ospeedr;
+    GPIO_PUPDR_ST pupdr,
+    GPIO_IDR_ST idr,
+    GPIO_ODR_ST odr,
+    GPIO_BSRR_ST bsrr,
+    GPIO_LCKR_ST lckr,
+    GPIO_AFRL_ST afrl,
+    GPIO_AFRH_ST afrh
 }GPIO_REGISTERS_ST;
 
 typedef union{
-    GPIO_MODER moder;
-    GPIO_OTYPER otyper;
-    GPIO_OSPEEDR ospeedr;
-    GPIO_PUPDR pupdr,
-    GPIO_IDR idr,
-    GPIO_ODR odr,
-    GPIO_BSRR bsrr,
-    GPIO_LCKR lckr,
-    GPIO_AFRL afrl,
-    GPIO_AFRH afrh
+    GPIO_MODER_ST moder;
+    GPIO_OTYPER_ST otyper;
+    GPIO_OSPEEDR_ST ospeedr;
+    GPIO_PUPDR_ST pupdr,
+    GPIO_IDR_ST idr,
+    GPIO_ODR_ST odr,
+    GPIO_BSRR_ST bsrr,
+    GPIO_LCKR_ST lckr,
+    GPIO_AFRL_ST afrl,
+    GPIO_AFRH_ST afrh
 }GPIO_REGISTERS_UT;
 
 typedef enum{GPIOA = 0, GPIOB = 1, GPIOC = 2, GPIOD = 3, GPIOE = 4, GPIOF = 5, GPIOG = 6,\
@@ -230,10 +230,10 @@ typedef enum {PUSHPULL = 0b0, OPENDRAIN = 0b1}OTYPER_SETTINGS;
 typedef enum {LOW = 0b00, MEDIUM = 0b01, HIGH = 0b10, VERYHIGH = 0b11}OSPEEDR_SETTINGS;
 typedef enum {NOUPDOWN = 0b00, PULLUP = 0b01, PULLDOWN = 0b10, RESERVED = 0b11}PUPDR_SETTINGS;
 
-void gpio_moder_set(GPIOX gpio_port, uint16_t pin_number, MODER_SETTINGS moder_setting);
-void gpio_otyper_set(uint16_t pin_number, OTYPER_SETTINGS otyper_setting);
-void gpio_ospeedr_set(uint16_t pin_number, OSPEEDR_SETTINGS ospeedr_setting);
-void gpio_pupdr_set(uint16_t pin_numder, PUPDR_SETTINGS pupdr_setting);
-void gpio_pin_digital_bsrr_set(uint16_t pin_number);
+// void gpio_moder_set(GPIOX gpio_port, uint16_t pin_number, MODER_SETTINGS moder_setting);
+// void gpio_otyper_set(uint16_t pin_number, OTYPER_SETTINGS otyper_setting);
+// void gpio_ospeedr_set(uint16_t pin_number, OSPEEDR_SETTINGS ospeedr_setting);
+// void gpio_pupdr_set(uint16_t pin_numder, PUPDR_SETTINGS pupdr_setting);
+// void gpio_pin_digital_bsrr_set(uint16_t pin_number);
 
 #endif
