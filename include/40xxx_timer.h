@@ -4,7 +4,7 @@
 #include "customint.h"
 /*Though HW and Byte access are available,
 all structures are by default 32bits with 16bit offset where necessary*/
-
+/*ADVANCED TIMER*/
 #define ACT_TIMx_CR1_OFFSET 0x00
 #define ACT_TIMx_CR1_RESET 0x00000000
 typedef struct{
@@ -197,28 +197,28 @@ typedef struct{
     uint32_t RESERVED :1;
     uint32_t CC4NP :1;
     uint32_t OFFSET_HW :16;
-}ACT_TIMx_CCER;
+}ACT_TIMx_CCER_ST;
 
 #define ACT_TIMx_CNT_OFFSET 0x24
 #define ACT_TIMx_CNT_RESET 0x00000000
 typedef struct{
     uint32_t CNT :16;
     uint32_t OFFSET_HW :16;
-}ACT_TIMx_CNT;
+}ACT_TIMx_CNT_ST;
 
 #define ACT_TIMx_PSC_OFFSET 0x28
 #define ACT_TIMx_PSC_RESET 0x00000000
 typedef struct{
     uint32_t PSC :16;
     uint32_t OFFSET_HW :16;
-}ACT_TIMx_PSC;
+}ACT_TIMx_PSC_ST;
 
 #define ACT_TIMx_ARR_OFFSET 0x2c
 #define ACT_TIMx_AFF_RESET 0x0000ffff
 typedef struct{
     uint32_t ARR :16;
     uint32_t OFFSET_HW :16;
-}ACT_TIMx_ARR;
+}ACT_TIMx_ARR_ST;
 
 #define ACT_TIMx_RCR_OFFSET 0x30
 #define ACT_TIMx_RCR_RESET 0x00000000
@@ -226,35 +226,35 @@ typedef struct{
     uint32_t REP :8;
     uint32_t RESERVED :8;
     uint32_t OFFSET_HW :16;
-}ACT_TIMx_RCR;
+}ACT_TIMx_RCR_ST;
 
 #define ACT_TIMx_CCR1_OFFSET 0x34
 #define ACT_TIMx_CCR1_RESET 0x00000000
 typedef struct{
     uint32_t CCR1 :16;
     uint32_t OFFSET_HW :16;
-}ACT_TIMx_CCR1;
+}ACT_TIMx_CCR1_ST;
 
 #define ACT_TIMx_CCR2_OFFSET 0x38
 #define ACT_TIMx_CCR2_RESET 0x00000000
 typedef struct{
     uint32_t CCR2 :16;
     uint32_t OFFSET_HW :16;
-}ACT_TIMx_CCR2;
+}ACT_TIMx_CCR2_ST;
 
 #define ACT_TIMx_CCR3_OFFSET 0x3c
 #define ACT_TIMx_CCR3_RESET 0x00000000
 typedef struct{
     uint32_t CCR3 :16;
     uint32_t OFFSET_HW :16;
-}ACT_TIMx_CCR3;
+}ACT_TIMx_CCR3_ST;
 
 #define ACT_TIMx_CCR4_OFFSET 0x40
 #define ACT_TIMx_CCR4_RESET 0x00000000
 typedef struct{
     uint32_t CCR4 :16;
     uint32_t OFFSET_HW :16;
-}ACT_TIMx_CCR4;
+}ACT_TIMx_CCR4_ST;
 
 #define ACT_TIMx_BDTR_OFFSET 0x44
 #define ACT_TIMx_BDTR_RESET 0x00000000
@@ -268,7 +268,7 @@ typedef struct{
     uint32_t AOE :1;
     uint32_t MOE :1;
     uint32_t OFFSET_HW :16;
-}ACT_TIMx_BDTR;
+}ACT_TIMx_BDTR_ST;
 
 #define ACT_TIMx_DCR_OFFSET 0x48
 #define ACT_TIMx_DCR_RESET 0x00000000
@@ -278,13 +278,38 @@ typedef struct{
     uint32_t DBL :5;
     uint32_t RESERVED_2 :3;
     uint32_t OFFSET_HW :16;
-}ACT_TIMx_DCR;
+}ACT_TIMx_DCR_ST;
 
 #define ACT_TIMx_DMAR_OFFSET 0x4c
 #define ACT_TIMx_DMAR_RESET 0x00000000
 typedef struct{
     uint32_t DMAB :32;
-}ACT_TIMx_DMAR;
+}ACT_TIMx_DMAR_ST;
+
+typedef struct {
+    ACT_TIMx_CR1_ST CR1;
+    ACT_TIMx_CR2_ST CR2;
+    ACT_TIMx_SMCR_ST SMCR;
+    ACT_TIMx_DIER_ST DIER;
+    ACT_TIMx_SR_ST SR;
+    ACT_TIMx_EGR_ST EGR;
+    ACT_TIMx_CCMR1_UT CCMR1;
+    ACT_TIMx_CCMR2_UT CCMR2;
+    ACT_TIMx_CCER_ST CCER;
+    ACT_TIMx_CNT_ST CNT;
+    ACT_TIMx_PSC_ST PSC;
+    ACT_TIMx_ARR_ST ARR;
+    ACT_TIMx_RCR_ST RCR;
+    ACT_TIMx_CCR1_ST CCR1;
+    ACT_TIMx_CCR2_ST CCR2;
+    ACT_TIMx_CCR3_ST CCR3;
+    ACT_TIMx_CCR4_ST CCR4;
+    ACT_TIMx_BDTR_ST BDTR;
+    ACT_TIMx_DCR_ST DCR;
+    ACT_TIMx_DMAR DMAR;
+}ACT_TIMx_ST;
+
+/*END OF ADVANCED TIMERS*/
 
 /*basic timers*/
 #define BT_TIMx_CR1_OFFSET 0x00
@@ -355,6 +380,17 @@ typedef struct {
     uint32_t ARR :16;
     uint32_t OFFSET_HW :16;
 }BT_TIMx_ARR_ST;
+
+typedef struct{
+    BT_TIMx_CR1_ST CR1;
+    BT_TIMx_CR2_ST CR2;
+    BT_TIMx_DIER_ST DIER;
+    BT_TIMx_SR_ST SR;
+    BT_TIMx_EGR_ST EGR;
+    BT_TIMx_CNT_ST CNT;
+    BT_TIMx_PSC_ST PSC;
+    BT_TIMx_ARR_ST ARR;
+}BT_TIMx_ST;
 
 /*END OF BASIC TIMERS*/
 
