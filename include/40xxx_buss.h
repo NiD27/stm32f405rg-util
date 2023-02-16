@@ -11,8 +11,16 @@ typedef enum {
 
 }AHB1_PERIPHERALS_T;
 
+typedef enum{
+    TIM1EN = 0, TIM2EN = 1, USART1EN = 4, USART6EN = 5, ADC1EN = 8, ADC2EN = 9, ADC3EN = 10,\
+    SPIOEN = 11, SPI1EN = 12, SPI4EN = 13, SYSCFGEN = 14, TIM9EN = 16, TIM10EN = 17, TIM11EN = 18,\
+    SPI5EN = 20, SPI6EN = 21, SAI1EN = 22, LTDCEN = 26
+}APB2_PERIPHERALS_T;
+
 void buss_ahb1_enable_peripheral(AHB1_PERIPHERALS_T ahb1_peripheral);
 void buss_ahb1_disable_peripheral(AHB1_PERIPHERALS_T ahb1_peripheral);
 
+void buss_apb2_enable_peripheral(APB2_PERIPHERALS_T apb2_peripheral);
+void buss_apb2_disable_peripheral(APB2_PERIPHERALS_T apb2_peripheral);
 
 #endif
