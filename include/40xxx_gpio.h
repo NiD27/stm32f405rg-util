@@ -198,29 +198,29 @@ typedef struct{
 }GPIO_AFRH_ST;
 
 typedef struct{
-    GPIO_MODER_ST moder;
-    GPIO_OTYPER_ST otyper;
-    GPIO_OSPEEDR_ST ospeedr;
-    GPIO_PUPDR_ST pupdr;
-    GPIO_IDR_ST idr;
-    GPIO_ODR_ST odr;
-    GPIO_BSRR_ST bsrr;
-    GPIO_LCKR_ST lckr;
-    GPIO_AFRL_ST afrl;
-    GPIO_AFRH_ST afrh;
+    GPIO_MODER_ST MODER;
+    GPIO_OTYPER_ST OTYPER;
+    GPIO_OSPEEDR_ST OSPEEDR;
+    GPIO_PUPDR_ST PUPDR;
+    GPIO_IDR_ST IDR;
+    GPIO_ODR_ST ODR;
+    GPIO_BSRR_ST BSRR;
+    GPIO_LCKR_ST LCKR;
+    GPIO_AFRL_ST AFRL;
+    GPIO_AFRH_ST AFRH;
 }GPIO_REGISTERS_ST;
 
 typedef union{
-    GPIO_MODER_ST moder;
-    GPIO_OTYPER_ST otyper;
-    GPIO_OSPEEDR_ST ospeedr;
-    GPIO_PUPDR_ST pupdr;
-    GPIO_IDR_ST idr;
-    GPIO_ODR_ST odr;
-    GPIO_BSRR_ST bsrr;
-    GPIO_LCKR_ST lckr;
-    GPIO_AFRL_ST afrl;
-    GPIO_AFRH_ST afrh;
+    GPIO_MODER_ST MODER;
+    GPIO_OTYPER_ST OTYPER;
+    GPIO_OSPEEDR_ST OSPEEDR;
+    GPIO_PUPDR_ST PUPDR;
+    GPIO_IDR_ST IDR;
+    GPIO_ODR_ST ODR;
+    GPIO_BSRR_ST BSRR;
+    GPIO_LCKR_ST LCKR;
+    GPIO_AFRL_ST AFRL;
+    GPIO_AFRH_ST AFRH;
 }GPIO_REGISTERS_UT;
 
 typedef enum{GPIOA = 0, GPIOB = 1, GPIOC = 2, GPIOD = 3, GPIOE = 4, GPIOF = 5, GPIOG = 6,\
