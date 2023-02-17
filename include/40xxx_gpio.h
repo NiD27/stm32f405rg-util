@@ -229,7 +229,8 @@ typedef enum {INPUT = 0b00, OUTPUT = 0b01, ALTERNATE_FUNCTION = 0b10, ANALOG = 0
 typedef enum {PUSHPULL = 0b0, OPENDRAIN = 0b1}OTYPER_SETTINGS;
 typedef enum {LOW = 0b00, MEDIUM = 0b01, HIGH = 0b10, VERYHIGH = 0b11}OSPEEDR_SETTINGS;
 typedef enum {NOUPDOWN = 0b00, PULLUP = 0b01, PULLDOWN = 0b10, RESERVED = 0b11}PUPDR_SETTINGS;
-
+typedef enum{AF0 = 0x0, AF1 = 0x1, AF2 = 0x2, AF3 = 0x3, AF4 = 0x4, AF5 = 0x5, AF6 = 0x6, AF7 = 0x7,\
+            AF8 = 0x8, AF9 = 0x9, AF10 = 0xa, AF11 = 0xb, AF12 = 0xc, AF13 = 0xd, AF14 = 0xe, AF15 = 0xf}AF_SETTINGS;
 // void gpio_moder_set(GPIOX gpio_port, uint16_t pin_number, MODER_SETTINGS moder_setting);
 // void gpio_otyper_set(uint16_t pin_number, OTYPER_SETTINGS otyper_setting);
 // void gpio_ospeedr_set(uint16_t pin_number, OSPEEDR_SETTINGS ospeedr_setting);
