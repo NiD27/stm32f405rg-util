@@ -9,7 +9,7 @@ typedef struct{
     uint32_t HPRE :4;
     uint32_t RESERVED_1 :2;
     uint32_t PPRE1 :3;
-    uint32_t PPRE2 :3:
+    uint32_t PPRE2 :3;
     uint32_t RTCPRE :5;
     uint32_t MCO1 :2;
     uint32_t I2SSCR :1;
