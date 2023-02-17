@@ -1,4 +1,4 @@
-#include "40xxx_buss.h"
+#include "DEPRECATED40xxx_buss.h"
 
 #include "bitwise.h"
 #include "40xxx_rcc.h"
