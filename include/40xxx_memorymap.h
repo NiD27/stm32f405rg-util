@@ -69,10 +69,4 @@ GPIO offset 3FF ie 1024 bytes
 #define GPIOx_AFRH_RESET_VALUE(gpiox_address) 0x00000000
 
 /*END OF GPIO*/
-
-
-#define TIM1_ADDRESS 0x40010000
-#define TIM8_ADDRESS 0x40010400
-
-
 #endif
