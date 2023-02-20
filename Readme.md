@@ -54,7 +54,7 @@ Example : Output Compare and Input Capture registers in the timer, though it ser
 
 The original list was too long so I decided to do less things.
 
-- [ ] Refactor (Remove DEPRECATED dependency)
+- [X] Refactor (Remove DEPRECATED dependency)
 
 - [ ] PWM Functionality
 
