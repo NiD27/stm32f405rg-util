@@ -1,5 +1,5 @@
-#ifndef _NID_40xxx_SYSCFG
-#define _NID_40xxx_SYSCFG
+#ifndef _NID_40xxx_syscfg_
+#define _NID_40xxx_syscfg_
 
 #include <customint.h>
 #include <40xxx_util.h>

@@ -1,5 +1,5 @@
-#ifndef _NID_40xxx_interupts_
-#define _NID_40xxx_interupts_
+#ifndef _NID_40xxx_interrupts_
+#define _NID_40xxx_interrupts_
 
 /*EXTI*/
 /*EXTI registers are in APB2 from 0x40013c00 to 0x40013fff*/

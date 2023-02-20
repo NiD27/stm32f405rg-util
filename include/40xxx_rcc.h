@@ -1,5 +1,5 @@
-#ifndef _NID_40xxx_RCC_
-#define _NID_40xxx_RCC_
+#ifndef _NID_40xxx_rcc_
+#define _NID_40xxx_rcc_
 
 /*RCC*/
 #define RCC_SIZE    0x400

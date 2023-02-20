@@ -1,5 +1,5 @@
-#ifndef _NID_40xxx_adc
-#define _NID_40xxx_adc
+#ifndef _NID_40xxx_adc_
+#define _NID_40xxx_adc_
 
 #define ADC_BASE_ADDRESS 0x40012000U
 #define ADC_END_ADDRESS 0x400123ffU
