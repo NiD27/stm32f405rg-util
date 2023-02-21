@@ -161,7 +161,7 @@ typedef struct{
 #define EXTI_PR_OFFSET 0x14
 #define EXTI_PR_ADDRESS (EXTI_START_ADDRESS+EXTI_PR_OFFSET)
 /*RESET VALUE IS UNDEFINED
-#define EXTI_RTSR_RESET_VALUE 0x00000000
+#define EXTI_RTSR_RESET_VALUE 0xffffffff
 */
 typedef struct{
     uint32_t PR0 :1;
