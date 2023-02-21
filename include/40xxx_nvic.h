@@ -1,6 +1,8 @@
 #ifndef _NID_40xxx_nvic_
 #define _NID_40xxx_nvic_
 
+#include <customint.h>
+
 #define NVIC_ISER_START_ADDRESS 0xe000e100U
 #define NVIC_ISER_END_ADDRESS 0xe000e11fU
 #define NVIC_ISER_SIZE 0x20U
@@ -20,7 +22,7 @@ typedef struct{
 */
 typedef struct{
     NVIC_ISER_ST ISER[8];
-}NIVC_ISER_REGISTERS_ST;
+}NVIC_ISER_REGISTERS_ST;
 
 #define NVIC_ICER_START_ADDRESS 0xe000e180U
 #define NVIC_ICER_END_ADDRESS 0xe000e19fU
@@ -132,4 +134,12 @@ typedef struct{
 * NVIC_STIR_REGISTERS_ST?
 * To do or not to do.
 */
+
+uint8_t nvic_iser_set_enable(uint8_t position);
+uint8_t nvic_icer_set_enable(uint8_t position);
+uint8_t nvic_ispr_set_enable(uint8_t position);
+uint8_t nvic_icpr_set_enable(uint8_t position);
+uint8_t nvic_iabr_set_enable(uint8_t position);
+uint8_t nvic_ipr_set_priority(uint8_t position, uint8_t priority);
+
 #endif
