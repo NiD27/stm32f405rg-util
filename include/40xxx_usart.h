@@ -88,6 +88,14 @@ typedef struct{
     volatile uint32_t RESERVED :16;
 }USART_GTPR_ST;
 
-
+typedef struct{
+    USART_SR_ST SR;
+    USART_DR_ST DR;
+    USART_BRR_ST BRR;
+    USART_CR1_ST CR1;
+    USART_CR2_ST CR2;
+    USART_CR3_ST CR3;
+    USART_GTPR_ST GTPR;
+}USART_REGISTERS_ST;
 
 #endif
