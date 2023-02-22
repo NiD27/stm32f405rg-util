@@ -57,9 +57,9 @@ typedef struct{
     uint32_t RESERVED_1 :6;
     uint32_t JAWDEN :1;
     uint32_t AWDEN :1;
-    uint32_t RESERVED_2 :2;
+    uint32_t RES :2;
     uint32_t OVRIE :1;
-    uint32_t RESERVED_3 :5;
+    uint32_t RESERVED_2 :5;
 }ADC_CR1_ST;
 
 #define ADC_CR2_OFFSET 0x08
