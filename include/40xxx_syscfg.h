@@ -32,7 +32,7 @@ typedef struct{
     uint32_t EXTI0 :4;
     uint32_t EXTI1 :4;
     uint32_t EXTI2 :4;
-    uint32_t EXTI4 :4;
+    uint32_t EXTI3 :4;
     uint32_t RESERVED :16;
 }SYSCFG_EXTICR1_ST;
 
