@@ -114,7 +114,7 @@ typedef struct{
         volatile uint32_t CTEIF6 :1;
         volatile uint32_t CHTIF6 :1;
         volatile uint32_t CTCIF6 :1; 
-        volatile uint32_t CFEIF6 :1;
+        volatile uint32_t CFEIF7 :1;
         volatile uint32_t RESERVED_5 :1;
         volatile uint32_t CDMEIF7 :1;
         volatile uint32_t CTEIF7 :1;

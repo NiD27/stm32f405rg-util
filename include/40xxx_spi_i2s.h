@@ -81,7 +81,7 @@ typedef struct{
     volatile uint32_t I2SCFG :2;
     volatile uint32_t I2SE :1;
     volatile uint32_t I2SMOD :1;
-    uint32_t RESERVED_1 :4;
+    uint32_t RESERVED_2 :4;
     uint32_t RESERVED :16;
 }SPI_I2SCFGR_ST;
 
