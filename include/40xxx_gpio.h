@@ -237,4 +237,5 @@ typedef enum{AF0 = 0x0, AF1 = 0x1, AF2 = 0x2, AF3 = 0x3, AF4 = 0x4, AF5 = 0x5, A
 // void gpio_pupdr_set(uint16_t pin_numder, PUPDR_SETTINGS pupdr_setting);
 // void gpio_pin_digital_bsrr_set(uint16_t pin_number);
 
+
 #endif
