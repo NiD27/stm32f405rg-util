@@ -52,3 +52,18 @@ uint8_t byte_read(SPI_I2S_REGISTERS_ST *SPI, uint16_t address){
     }else{/*DO NOTHING*/}
     return data;
 }
+
+uint8_t enable_whole_memory(SPI_I2S_REGISTERS_ST *SPI){
+    uint8_t i = 0, data = 0;
+    uint8_t data_stream[2] = {
+        M9560_WRSR,
+        (M9560_BP0 | M9560_BP1)
+    };
+    while(i<2){
+        if(SPI->SR.TXE){
+            SPI->DR.DR = (uint16_t)data_stream[i];
+            i++;
+        }else{/*DO NOTHING*/}
+    }
+    return 0;
+}

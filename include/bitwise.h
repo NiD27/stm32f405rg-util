@@ -9,6 +9,9 @@ HW : 16bits
 B : 8bits
 */
 
+#define HIGH 0b1
+#define LOW 0b0
+
 #define SET_W(initial_value, bit_number) initial_value|((uint32_t)1<<bit_number) 
 #define RESET_W(initial_value, bit_number) initial_value&(~((uint32_t)1<<bit_number))
 #define TOGGLE_W(initial_value, bit_number) initial_value^((uint32_t)1<<bit_number)

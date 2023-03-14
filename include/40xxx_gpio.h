@@ -222,9 +222,9 @@ typedef union{
     GPIO_AFRL_ST AFRL;
     GPIO_AFRH_ST AFRH;
 }GPIO_REGISTERS_UT;
-
+/*
 typedef enum{GPIOA = 0, GPIOB = 1, GPIOC = 2, GPIOD = 3, GPIOE = 4, GPIOF = 5, GPIOG = 6,\
-            GPIOH = 7, GPIOI = 8}GPIOX;
+            GPIOH = 7, GPIOI = 8}GPIOX;*/
 typedef enum {INPUT = 0b00, OUTPUT = 0b01, ALTERNATE_FUNCTION = 0b10, ANALOG = 0b11}MODER_SETTINGS;
 typedef enum {PUSHPULL = 0b0, OPENDRAIN = 0b1}OTYPER_SETTINGS;
 typedef enum {LOW = 0b00, MEDIUM = 0b01, HIGH = 0b10, VERYHIGH = 0b11}OSPEEDR_SETTINGS;
