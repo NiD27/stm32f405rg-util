@@ -2,8 +2,10 @@
 #define _NID_40xxx_gpio_
 
 #include "customint.h"
+#include "bitwise.h"
 
-typedef struct{
+typedef union{
+    uint32_t MODER;
     uint32_t MODER0 :2;
     uint32_t MODER1 :2;
     uint32_t MODER2 :2;
@@ -22,7 +24,8 @@ typedef struct{
     uint32_t MODER15 :2;
 }GPIO_MODER_ST;
 
-typedef struct{
+typedef union{
+    uint32_t OTYPER;
     uint32_t OTYPER0 :1;
     uint32_t OTYPER1 :1;
     uint32_t OTYPER2 :1;
@@ -42,7 +45,8 @@ typedef struct{
     uint32_t RESERVED :16;
 }GPIO_OTYPER_ST;
 
-typedef struct{
+typedef union{
+    uint32_t OSPEEDR;
     uint32_t OSPEEDR0 :2;
     uint32_t OSPEEDR1 :2;
     uint32_t OSPEEDR2 :2;
@@ -61,7 +65,8 @@ typedef struct{
     uint32_t OSPEEDR15 :2;
 }GPIO_OSPEEDR_ST;
 
-typedef struct{
+typedef union{
+    uint32_t PUPDR;
     uint32_t PUPDR0 :2;
     uint32_t PUPDR1 :2;
     uint32_t PUPDR2 :2;
@@ -80,7 +85,8 @@ typedef struct{
     uint32_t PUPDR15 :2;
 }GPIO_PUPDR_ST;
 
-typedef struct{
+typedef union{
+    uint32_t IDR;
     uint32_t IDR0 :1;
     uint32_t IDR1 :1;
     uint32_t IDR2 :1;
@@ -100,7 +106,8 @@ typedef struct{
     uint32_t RESERVED :16;
 }GPIO_IDR_ST;
 
-typedef struct{
+typedef union{
+    uint32_t ODR;
     uint32_t ODR0 :1;
     uint32_t ODR1 :1;
     uint32_t ODR2 :1;
@@ -120,7 +127,8 @@ typedef struct{
     uint32_t RESERVED :16;
 }GPIO_ODR_ST;
 
-typedef struct{
+typedef union{
+    uint32_t BSR;
     uint32_t BS0 :1;
     uint32_t BS1 :1;
     uint32_t BS2 :1;
@@ -155,7 +163,8 @@ typedef struct{
     uint32_t BR15 :1;
 }GPIO_BSRR_ST;
 
-typedef struct{
+typedef union{
+    uint32_t ODR;
     uint32_t ODR0 :1;
     uint32_t ODR1 :1;
     uint32_t ODR2 :1;
@@ -175,7 +184,8 @@ typedef struct{
     uint32_t RESERVED :16;
 }GPIO_LCKR_ST;
 
-typedef struct{
+typedef union{
+    uint32_t AFRL;
     uint32_t AFRL0 :4;
     uint32_t AFRL1 :4;
     uint32_t AFRL2 :4;
@@ -186,7 +196,8 @@ typedef struct{
     uint32_t AFRL7 :4;
 }GPIO_AFRL_ST;
 
-typedef struct{
+typedef union{
+    uint32_t AFRH;
     uint32_t AFRH8 :4;
     uint32_t AFRH9 :4;
     uint32_t AFRH10 :4;
@@ -227,7 +238,7 @@ typedef enum{GPIOA = 0, GPIOB = 1, GPIOC = 2, GPIOD = 3, GPIOE = 4, GPIOF = 5, G
             GPIOH = 7, GPIOI = 8}GPIOX;*/
 typedef enum {INPUT = 0b00, OUTPUT = 0b01, ALTERNATE_FUNCTION = 0b10, ANALOG = 0b11}MODER_SETTINGS;
 typedef enum {PUSHPULL = 0b0, OPENDRAIN = 0b1}OTYPER_SETTINGS;
-typedef enum {LOW = 0b00, MEDIUM = 0b01, HIGH = 0b10, VERYHIGH = 0b11}OSPEEDR_SETTINGS;
+typedef enum {LOW_SPEED = 0b00, MEDIUM_SPEED = 0b01, HIGH_SPEED = 0b10, VERYHIGH_SPEED = 0b11}OSPEEDR_SETTINGS;
 typedef enum {NOUPDOWN = 0b00, PULLUP = 0b01, PULLDOWN = 0b10, RESERVED = 0b11}PUPDR_SETTINGS;
 typedef enum{AF0 = 0x0, AF1 = 0x1, AF2 = 0x2, AF3 = 0x3, AF4 = 0x4, AF5 = 0x5, AF6 = 0x6, AF7 = 0x7,\
             AF8 = 0x8, AF9 = 0x9, AF10 = 0xa, AF11 = 0xb, AF12 = 0xc, AF13 = 0xd, AF14 = 0xe, AF15 = 0xf}AF_SETTINGS;
@@ -237,5 +248,8 @@ typedef enum{AF0 = 0x0, AF1 = 0x1, AF2 = 0x2, AF3 = 0x3, AF4 = 0x4, AF5 = 0x5, A
 // void gpio_pupdr_set(uint16_t pin_numder, PUPDR_SETTINGS pupdr_setting);
 // void gpio_pin_digital_bsrr_set(uint16_t pin_number);
 
-
+void gpio_pin_config(GPIO_REGISTERS_ST *const gpiox, uint8_t pin_number, MODER_SETTINGS moder, OTYPER_SETTINGS otyper,\
+                    OSPEEDR_SETTINGS ospeedr, PUPDR_SETTINGS pupdr,LOGIC_STATE odr, AF_SETTINGS af);
+void gpio_write_pin(GPIO_REGISTERS_ST *const gpiox, uint8_t pin_number, LOGIC_STATE state);
+uint32_t gpio_read_pin(GPIO_REGISTERS_ST *const gpiox, uint8_t pin_number);
 #endif

@@ -1,6 +1,8 @@
 #ifndef _NID_40xxx_rcc_
 #define _NID_40xxx_rcc_
 
+#include "customint.h"
+
 /*RCC*/
 #define RCC_SIZE    0x400
 #define RCC_ADDRESS 0x40023800

@@ -1,7 +1,7 @@
 #ifndef _NID_bitwise_
 #define _NID_bitwise_
 
-#include <stdint.h>
+#include "customint.h"
 
 /*
 W : 32bits
@@ -27,6 +27,6 @@ B : 8bits
 #define TOGGLE_B(initial_value, bit_number) initial_value^((uint8_t)1<<bit_number)
 #define GET_BIT_VALUE_B(initial_value, bit_number) (initial_value&((uint8_t)1<<bit_number))
 
-
+typedef enum{STATE_HIGH = HIGH, STATE_LOW = LOW}LOGIC_STATE;
 
 #endif /*_NID_bitwise_*/

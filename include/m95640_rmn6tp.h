@@ -1,8 +1,8 @@
 #ifndef _NID_m9560_rmn6tp
 #define _NID_m9560_rmn6tp
 
-#include <customint.h>
-#include <40xxx_spi_i2s.h>
+#include "customint.h"
+#include "40xxx_spi_i2s.h"
 
 typedef enum M9560_INSTRUCTIONS{
     M9560_WRSR = 0x01,

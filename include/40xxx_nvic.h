@@ -1,7 +1,7 @@
 #ifndef _NID_40xxx_nvic_
 #define _NID_40xxx_nvic_
 
-#include <customint.h>
+#include "customint.h"
 
 #define NVIC_ISER_START_ADDRESS 0xe000e100U
 #define NVIC_ISER_END_ADDRESS 0xe000e11fU
