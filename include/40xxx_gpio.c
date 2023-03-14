@@ -11,25 +11,40 @@
 void gpio_pin_config(GPIO_REGISTERS_ST *const gpiox, uint8_t pin_number, MODER_SETTINGS moder, OTYPER_SETTINGS otyper,\
                     OSPEEDR_SETTINGS ospeedr, PUPDR_SETTINGS pupdr,LOGIC_STATE odr, AF_SETTINGS af)
 {
-    gpiox->MODER &= (GPIO_MODER_ST) (~(((uint32_t)moder)<<(pin_number*2)));
-    gpiox->MODER |= (GPIO_MODER_ST) (((uint32_t)moder)<<(pin_number*2));
 
-    gpiox->OTYPER &= (GPIO_OTYPER_ST) (~(((uint32_t)otyper)<<(pin_number*2)));
-    gpiox->OTYPER |= (GPIO_OTYPER_ST) (((uint32_t)otyper)<<(pin_number*2));
+    if(pin_number < 0 || pin_number > 15 || gpiox == NULL){
+        return;
+    }else{
+        /*DO NOTHING*/
+    }
 
-    gpiox->OSPEEDR &= (GPIO_OSPEEDR_ST) (~(((uint32_t)ospeedr)<<(pin_number*2)));
-    gpiox->OSPEEDR |= (GPIO_OSPEEDR_ST) (((uint32_t)ospeedr)<<(pin_number*2));
+    gpiox->MODER.MODER &= ~(((uint32_t)moder)<<(pin_number*2));
+    gpiox->MODER.MODER |= (((uint32_t)moder)<<(pin_number*2));
 
-    gpiox->PUPDR &= (GPIO_PUPDR_ST) (~(((uint32_t)pupdr)<<(pin_number*2)));
-    gpiox->PUPDR |= (GPIO_PUPDR_ST) (((uint32_t)pupdr)<<(pin_number*2));
+    gpiox->OTYPER.OTYPER &= (~(((uint32_t)otyper)<<(pin_number*2)));
+    gpiox->OTYPER.OTYPER |= (((uint32_t)otyper)<<(pin_number*2));
 
-    gpiox->BSRR |= (GPIO_BSRR_ST) (~((uint32_t)odr)<<(pin_number*(2*(1-odr))));
+    gpiox->OSPEEDR.OSPEEDR &= (~(((uint32_t)ospeedr)<<(pin_number*2)));
+    gpiox->OSPEEDR.OSPEEDR |= (((uint32_t)ospeedr)<<(pin_number*2));
+
+    gpiox->PUPDR.PUPDR &= (~(((uint32_t)pupdr)<<(pin_number*2)));
+    gpiox->PUPDR.PUPDR |= (((uint32_t)pupdr)<<(pin_number*2));
+
+    if(pin_number < 8){
+        goiox->AFRL.AFRL &= (~(((uint32_t)af)<<(pin_number*4)));
+        gpiox->AFRL.AFRL |= (((uint32_t)af)<<(pin_number*4));
+    }else{
+        goiox->AFRH.AFRH &= (~(((uint32_t)af)<<(pin_number*4)));
+        gpiox->AFRH.AFRH |= (((uint32_t)af)<<(pin_number*4));
+    }
+
+    gpiox->BSRR |= (~((uint32_t)odr)<<(pin_number*(2*(1-odr))));
 }
 
 void gpio_write_pin(GPIO_REGISTERS_ST gpiox, uint8_t pin_number, LOGIC_STATE state){
-    gpiox->BSRR |= (GPIO_BSRR_ST) (~((uint32_t)odr)<<(pin_number*(2*(1-odr))));
+    gpiox->BSRR.BSRR |= (~((uint32_t)odr)<<(pin_number*(2*(1-odr))));
 }
 
 uint32_t gpio_read_pin(GPIO_REGISTERS_ST gpiox, uint8_t pin_number){
-    return (gpiox->IDR & (~(1<<pin_number)));
+    return (gpiox->IDR.IDR & (~(1<<pin_number)));
 }
