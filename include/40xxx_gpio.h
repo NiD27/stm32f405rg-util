@@ -250,6 +250,6 @@ typedef enum{AF0 = 0x0, AF1 = 0x1, AF2 = 0x2, AF3 = 0x3, AF4 = 0x4, AF5 = 0x5, A
 
 void gpio_pin_config(GPIO_REGISTERS_ST *const gpiox, uint8_t pin_number, MODER_SETTINGS moder, OTYPER_SETTINGS otyper,\
                     OSPEEDR_SETTINGS ospeedr, PUPDR_SETTINGS pupdr,LOGIC_STATE odr, AF_SETTINGS af);
-void gpio_write_pin(GPIO_REGISTERS_ST *const gpiox, uint8_t pin_number, LOGIC_STATE state);
-uint32_t gpio_read_pin(GPIO_REGISTERS_ST *const gpiox, uint8_t pin_number);
+void gpio_pin_write(GPIO_REGISTERS_ST *const gpiox, uint8_t pin_number, LOGIC_STATE state);
+uint32_t gpio_pin_read(GPIO_REGISTERS_ST *const gpiox, uint8_t pin_number);
 #endif
