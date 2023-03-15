@@ -20,7 +20,9 @@ void gpio_pin_config(GPIO_REGISTERS_ST *const gpiox, uint8_t pin_number, MODER_S
 
     gpiox->MODER.MODER &= ~(((uint32_t)moder)<<(pin_number*2));
     gpiox->MODER.MODER |= (((uint32_t)moder)<<(pin_number*2));
-
+    if(moder == INPUT){
+        return;
+    }else{/*DO NOTHING*/}
     gpiox->OTYPER.OTYPER &= (~(((uint32_t)otyper)<<(pin_number*2)));
     gpiox->OTYPER.OTYPER |= (((uint32_t)otyper)<<(pin_number*2));
 
@@ -45,6 +47,6 @@ void gpio_pin_write(GPIO_REGISTERS_ST *const gpiox, uint8_t pin_number, LOGIC_ST
     gpiox->BSRR.BSR |= (~((uint32_t)state)<<(pin_number*(2*(1-state))));
 }
 
-uint32_t gpio_pin_write(GPIO_REGISTERS_ST *const gpiox, uint8_t pin_number){
+uint32_t gpio_pin_read(GPIO_REGISTERS_ST *const gpiox, uint8_t pin_number){
     return (uint32_t)(gpiox->IDR.IDR & (~(1<<pin_number)));
 }
