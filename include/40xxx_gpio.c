@@ -40,11 +40,11 @@ void gpio_pin_config(GPIO_REGISTERS_ST *const gpiox, uint8_t pin_number, MODER_S
         gpiox->AFRH.AFRH |= (((uint32_t)af)<<(pin_number*4));
     }
 
-    gpiox->BSRR.BSR |= (~((uint32_t)odr)<<(pin_number*(2*(1-odr))));
+    gpiox->BSRR.BSR |= (1<<(pin_number+16*(1-odr)));
 }
 
 void gpio_pin_write(GPIO_REGISTERS_ST *const gpiox, uint8_t pin_number, LOGIC_STATE state){
-    gpiox->BSRR.BSR |= (~((uint32_t)state)<<(pin_number*(2*(1-state))));
+    gpiox->BSRR.BSR |= (1<<(pin_number+16*(1-state)));
 }
 
 uint32_t gpio_pin_read(GPIO_REGISTERS_ST *const gpiox, uint8_t pin_number){
